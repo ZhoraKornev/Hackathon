@@ -3,8 +3,9 @@ window.onload = function () {
     var gridHeight = 10;
     var grid = [];
     var table = document.getElementById("main_table");
-    var i = gridWidth;
-    var n = 1;
+    var i = gridWidth-2;
+    var n = -1;
+
 
     for (var y = 0; y < gridHeight; y++) {
         tr = document.createElement('tr');
@@ -12,47 +13,51 @@ window.onload = function () {
         grid.push([]);
         td = document.createElement('td');
         tr.appendChild(td);
-        td.innerHTML = i;
+        if (i != -1) {
+            td.innerHTML = i;
+        }
+
         td.id = "line_right";
         for (var x = 0; x < gridWidth; x++) {
             td = document.createElement('td');
             tr.appendChild(td);
-            if (y == gridHeight - 1) {
+            if (y == gridHeight-1) {
                 td.id = "line_top";
-                td.innerHTML = n;
+                td.innerHTML = n+1;
                 n++;
             } else {
                 span = document.createElement('span');
                 span.innerHTML = "&#9679;";
                 td.appendChild(span);
                 rect = span.getBoundingClientRect();
-                span.id = rect.x + " " + rect.y;
-                span.className = '{"i":' + i + ',"n":' + (x+1) + '}';
+
+                var body = document.body;
+                var docElem = document.documentElement;
+                var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
+                var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
+                var clientTop = docElem.clientTop || body.clientTop || 0;
+                var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+
+
+                c_y = rect.top + scrollTop - clientTop - span.offsetWidth / 2 ;
+                c_x= rect.left + scrollLeft - clientLeft - span.offsetWidth / 2 ;
+
+                span.id = c_x + " " + c_y;
+
+                span.className = "tr_" + i + "_" + x;
                 grid[y].push(0);
             }
         }
         i--;
     }
+    set_aim(0,0);
 
-    var td_aim = document.querySelector("#main_table tr:nth-last-child(1) td:nth-child(2)");
-    var coords = document.querySelector("#main_table tr:nth-last-child(1) td:nth-child(2)").getBoundingClientRect();
-
-
-    var body = document.body;
-    var docElem = document.documentElement;
-    var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
-    var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
-    var clientTop = docElem.clientTop || body.clientTop || 0;
-    var clientLeft = docElem.clientLeft || body.clientLeft || 0;
-
-
-    document.getElementById("aim").style.top = coords.top + scrollTop - clientTop - td_aim.offsetWidth / 2 + "px";
-    document.getElementById("aim").style.left = coords.left + scrollLeft - clientLeft - td_aim.offsetWidth / 2 + "px";
 
 }
 
 //var previousLocation = [{}]
 //var LocationOfTochka =  {}
+
 
 
 var PenRaised = 0;
@@ -64,7 +69,25 @@ function raisePen() {
 
 }
 
+function set_aim(x, y){
 
+    var td_aim = document.getElementsByClassName("tr_"+x+"_"+y+"")[0];
+    var coords = document.getElementsByClassName("tr_"+x+"_"+y+"")[0].getBoundingClientRect();
+
+    var body = document.body;
+    var docElem = document.documentElement;
+    var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
+    var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
+    var clientTop = docElem.clientTop || body.clientTop || 0;
+    var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+
+
+    document.getElementById("aim").style.top = coords.top + scrollTop - clientTop - td_aim.offsetWidth / 2 + "px";
+    document.getElementById("aim").style.left = coords.left + scrollLeft - clientLeft - td_aim.offsetWidth / 2 + "px";
+}
+function set_line(){
+
+}
 function MovePen() {
     var x = document.getElementById("x").value
     var y = document.getElementById("y").value
