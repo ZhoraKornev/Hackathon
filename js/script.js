@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function () {
     var gridWidth = 10;
     var gridHeight = 10;
     var grid = [];
@@ -17,7 +17,7 @@ window.onload = function(){
         for (var x = 0; x < gridWidth; x++) {
             td = document.createElement('td');
             tr.appendChild(td);
-            if (y == gridHeight-1){
+            if (y == gridHeight - 1) {
                 td.id = "line_top";
                 td.innerHTML = n;
                 n++;
@@ -27,6 +27,7 @@ window.onload = function(){
                 td.appendChild(span);
                 rect = span.getBoundingClientRect();
                 span.id = rect.x + " " + rect.y;
+                span.className = '{"i":' + i + ',"n":' + (x+1) + '}';
                 grid[y].push(0);
             }
         }
@@ -45,8 +46,8 @@ window.onload = function(){
     var clientLeft = docElem.clientLeft || body.clientLeft || 0;
 
 
-    document.getElementById("aim").style.top = coords.top +  scrollTop - clientTop - td_aim.offsetWidth/2 + "px";
-    document.getElementById("aim").style.left= coords.left + scrollLeft - clientLeft - td_aim.offsetWidth/2 + "px";
+    document.getElementById("aim").style.top = coords.top + scrollTop - clientTop - td_aim.offsetWidth / 2 + "px";
+    document.getElementById("aim").style.left = coords.left + scrollLeft - clientLeft - td_aim.offsetWidth / 2 + "px";
 
 }
 
@@ -56,104 +57,94 @@ window.onload = function(){
 
 var PenRaised = 0;
 
-function raisePen(){
-  PenRaised = 1;
-  console.log("pen raised")
-  console.log(PenRaised)
+function raisePen() {
+    PenRaised = 1;
+    console.log("pen raised")
+    console.log(PenRaised)
 
 }
 
 
-function MovePen(){
-  var x = document.getElementById("x").value
-  var y = document.getElementById("y").value
+function MovePen() {
+    var x = document.getElementById("x").value
+    var y = document.getElementById("y").value
 
-  var kuda_x = document.getElementById("kuda_x").value
-  var kuda_y = document.getElementById("kuda_y").value
+    var kuda_x = document.getElementById("kuda_x").value
+    var kuda_y = document.getElementById("kuda_y").value
 
-  if(PenRaised){
-    console.log("pen Is Raised!")
-    PenLocation =  {"x":x, "y":y};
-    console.log(PenLocation)
+    if (PenRaised) {
+        console.log("pen Is Raised!")
+        PenLocation = {"x": x, "y": y};
+        console.log(PenLocation)
 
-  }
-  else{
-    console.log("Pen Is set ! I should Draw!")
-  var c=document.getElementById("internalcanvas");
-  var ctx=c.getContext("2d");
-  ctx.beginPath();
-  if (PenRaised)
-  //TODO Addogic to check if numbers are in input
-  console.log("pen locations")
-  console.log(PenLocation)
-        ctx.moveTo(PenLocation.x,PenLocation.y)
-        ctx.lineTo(kuda_x,kuda_y);
+    }
+    else {
+        console.log("Pen Is set ! I should Draw!")
+        var c = document.getElementById("internalcanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        if (PenRaised)
+        //TODO Addogic to check if numbers are in input
+            console.log("pen locations")
+        console.log(PenLocation)
+        ctx.moveTo(PenLocation.x, PenLocation.y)
+        ctx.lineTo(kuda_x, kuda_y);
         ctx.stroke();
 
-  };
-
+    }
+    ;
 
 
 }
-
-
-
 
 
 /////////
-var PenLocation = {"x":0, "y":0};
+var PenLocation = {"x": 0, "y": 0};
 
 
-function SetPenDown(){
-  var x = document.getElementById("x").value
-  var y = document.getElementById("y").value
-  console.log(PenLocation)
-  PenRaised = 0;
-  console.log("Pen is set down")
+function SetPenDown() {
+    var x = document.getElementById("x").value
+    var y = document.getElementById("y").value
+    console.log(PenLocation)
+    PenRaised = 0;
+    console.log("Pen is set down")
 
-if(x && y){
-  PenLocation = ({"x":x, "y":y})
-  console.log(PenLocation)
-  PenRaised = 0;
-  }
+    if (x && y) {
+        PenLocation = ({"x": x, "y": y})
+        console.log(PenLocation)
+        PenRaised = 0;
+    }
 }
+
 //////////
 
 
+function DrawLine() {
+    var x = document.getElementById("x").value
+    var y = document.getElementById("y").value
 
+    LocationOfTochka = ({"x": x, "y": y})
+    console.log(LocationOfTochka)
 
+    var kuda_x = document.getElementById("kuda_x").value
+    var kuda_y = document.getElementById("kuda_y").value
 
-
-function DrawLine(){
-var x = document.getElementById("x").value
-var y = document.getElementById("y").value
-
-LocationOfTochka = ({"x":x, "y":y})
-console.log(LocationOfTochka)
-
-var kuda_x = document.getElementById("kuda_x").value
-var kuda_y = document.getElementById("kuda_y").value
-
-var c=document.getElementById("internalcanvas");
-var ctx=c.getContext("2d");
-ctx.beginPath();
-var secondtolastitem =  ([previousLocation.length-2])
+    var c = document.getElementById("internalcanvas");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    var secondtolastitem = ([previousLocation.length - 2])
 //console.log(previousLocation[secondtolastitem])
 
-if (PenRaised)
+    if (PenRaised)
 //TODO Addogic to check if numbers are in input
-      ctx.moveTo(LocationOfTochka.x,LocationOfTochka.y)
-      ctx.lineTo(kuda_x,kuda_y);
-      ctx.stroke();
+        ctx.moveTo(LocationOfTochka.x, LocationOfTochka.y)
+    ctx.lineTo(kuda_x, kuda_y);
+    ctx.stroke();
 
 };
 
 
-
-
-function moveToVector(){
-
-
+function moveToVector() {
 
 
 }
