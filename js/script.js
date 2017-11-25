@@ -15,17 +15,15 @@ window.onload = function(){
         td.innerHTML = i;
         td.id = "line_right";
         for (var x = 0; x < gridWidth; x++) {
+            td = document.createElement('td');
+            tr.appendChild(td);
             if (y == gridHeight-1){
-                td = document.createElement('td');
                 td.id = "line_top";
-                tr.appendChild(td);
                 td.innerHTML = n;
                 n++;
             } else {
-                td = document.createElement('td');
-                tr.appendChild(td);
                 span = document.createElement('span');
-                span.innerHTML = "&#9679";
+                span.innerHTML = "&#9679;";
                 td.appendChild(span);
                 rect = span.getBoundingClientRect();
                 span.id = rect.x + " " + rect.y;
@@ -34,6 +32,21 @@ window.onload = function(){
         }
         i--;
     }
+
+    var td_aim = document.querySelector("#main_table tr:nth-last-child(1) td:nth-child(2)");
+    var coords = document.querySelector("#main_table tr:nth-last-child(1) td:nth-child(2)").getBoundingClientRect();
+
+
+    var body = document.body;
+    var docElem = document.documentElement;
+    var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
+    var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
+    var clientTop = docElem.clientTop || body.clientTop || 0;
+    var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+
+
+    document.getElementById("aim").style.top = coords.top +  scrollTop - clientTop - td_aim.offsetWidth/2 + "px";
+    document.getElementById("aim").style.left= coords.left + scrollLeft - clientLeft - td_aim.offsetWidth/2 + "px";
 
 }
 
