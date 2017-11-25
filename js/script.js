@@ -35,10 +35,49 @@ window.onload = function(){
         i--;
     }
 
-    document.getElementById("main_table").onclick = function(event) {
+  /*  document.getElementById("main_table").onclick = function(event) {
         var x = event.clientX;
         var y = event.clientY;
         var coords = "X coords: " + x + ", Y coords: " + y;
         document.getElementById("demo").innerHTML = coords;
-    }
+    }*/
+}
+
+var previousLocation = [{}]
+var LocationOfTochka =  {}
+
+
+function DrawLine(event){
+  var x = event.clientX;
+  var y = event.clientY;
+//  console.log(event);
+  previousLocation.push({"x":x ,"y":y})
+
+
+
+  LocationOfTochka = ({"x":x, "y":y})
+  console.log(LocationOfTochka.x)
+
+
+var c=document.getElementById("internalcanvas");
+var ctx=c.getContext("2d");
+ctx.beginPath();
+var secondtolastitem =  ([previousLocation.length-2])
+//console.log(previousLocation[secondtolastitem])
+if (secondtolastitem == null){console.log("One Item in Array")}
+
+else {
+//  console.log(previousLocation[secondtolastitem].x)
+//ctx.moveTo(previousLocation[secondtolastitem].x,previousLocation[secondtolastitem].y);
+
+ctx.moveTo(LocationOfTochka.x,LocationOfTochka.y)
+ctx.lineTo(100,100);
+ctx.stroke();
+}
+
+
+
+
+
+
 }
