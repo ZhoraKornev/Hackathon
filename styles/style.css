@@ -1,0 +1,14 @@
+td{
+    width: 20px;
+}
+#line_right{
+     border-right-color: black;
+     border-right-style: solid;
+     border-collapse: collapse;
+ }
+#line_top{
+    border-top-color: black;
+    border-top-style: solid;
+    border-collapse: collapse;
+    border-spacing:0
+}
