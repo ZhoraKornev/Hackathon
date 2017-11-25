@@ -145,8 +145,8 @@ function MovePen() {
                 console.log("x_f: " + x_f_1);
                 var x_f_h_1 = document.getElementsByClassName(x_f_1)[0].id.split(' ');
                 console.log("x_f_h: " + x_f_1);
-                PenLocation.x = x_f_h_1[0];
-                PenLocation.y = x_f_h_1[1];
+                PenLocation.x = parseInt(x_f_h_1[0]);
+                PenLocation.y =  parseInt(x_f_h_1[1]);
                 console.log("x: " + PenLocation.x);
                 console.log("y: " + PenLocation.y);
 
@@ -160,7 +160,7 @@ function MovePen() {
                 var x_f_h = document.getElementsByClassName(x_f)[0].id.split(' ');
                 console.log("x_1: " + x_f_h[0]);
                 console.log("x_2: " + x_f_h[1]);
-                ctx.lineTo( x_f_h[0], x_f_h[1]);
+                ctx.lineTo( parseInt(x_f_h[0]),  parseInt(x_f_h[1]));
                 ctx.stroke();
             }
 
