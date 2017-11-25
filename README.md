@@ -140,7 +140,7 @@ README.md             | Файл описание который вы сейча
 
 
 ![screenshot of sample](http://imagehost.spark-media.ru/i2/60C1D591-F390-CD57-D106-E0F3D53058DB.jpg)
-
+ 
 
 
       
