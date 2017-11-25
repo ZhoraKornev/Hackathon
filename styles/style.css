@@ -1,5 +1,6 @@
 td{
-    width: 20px;
+    width: 25px;
+    height: 25px;
 }
 #line_right{
      border-right-color: black;
@@ -19,10 +20,10 @@ body {
     color: #333333;
     text-align: center;
 }
-
-td{
-    width: 20px;
+#inner{
+    width: 90%;
 }
+
 #line_right{
     border-right-color: black;
     border-right-style: solid;
@@ -63,7 +64,7 @@ td{
 }
 
 .button {
-    padding: 15px 33px;
+    width: 200px;
     text-decoration: none;
     margin-top: 22px;
     margin-left: 10px;
@@ -87,9 +88,10 @@ td{
 .card-1:hover {
     box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
-#canvas {
+div#canvas {
     position: relative;
     width: 30%;
+    padding: 10px;
 }
 #canvas canvas {
     position:absolute;
@@ -101,4 +103,36 @@ td{
 }
 *, *:before, *:after {
     box-sizing: border-box;
+}
+.navbar {
+    height: auto;
+    background-image: url("../img/bg.png");
+    background-repeat: repeat-x;
+    background-position: right top;
+    padding: 5px;
+    margin-bottom: 40px;
+    width: 100%;
+    line-height: 1.4;
+    padding-right: 10px;
+}
+.container {
+width: 90%;
+margin: auto;
+height: 100%;
+
+}
+#canvas {
+    float:left;
+    width:40%;
+}
+#tools {
+    float:right;
+    width:30%;
+}
+#task{
+    float:right;
+    width:30%;
+}
+#aim{
+    position: absolute;
 }
