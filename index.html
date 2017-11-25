@@ -13,13 +13,13 @@
       <p><strong>Tip:</strong> Try to click different places in the heading.</p>
 
       <p id="demo"></p>
-      <div id="canvas" class = "card card-1">
-          <canvas ></canvas>
-          <div id="overlay"><table id="main_table">
+      <div id="canvas" class="card card-1">
+          <canvas id="internalcanvas" onclick="DrawLine(event)"></canvas>
+          <div id="overlay" ><table id="main_table">
           </table></div>
-          <img src="../images.jpg" width="20px" height="20px">
+          <img src="img/images.jpg" width="20px" height="20px">
       </div>
-      <div id="box_for_result" class = "card card-1">
+      <div id="box_for_result" class="card card-1">
           <input id="x">
           <input id="y">
 
