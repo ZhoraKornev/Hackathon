@@ -10,15 +10,23 @@
   <body>
     <h1>Чертежник</h1>
   <div id = "background">
-      <p><strong>Tip:</strong> Try to click different places in the heading.</p>
 
       <p id="demo"></p>
-      <div id="canvas">
-<table id="main_table">
 
-</table>
-      </div>
-      <div id="tasks">
+
+
+
+<div id="canvas" onclick="DrawLine(event)">
+        <canvas id="internalcanvas"></canvas>
+        <div id="overlay"><table id="main_table" >
+
+        </table></div>
+
+    </div>
+
+    <div id="tasks">
+
+
       </div>
       <div id = "resualt">
 
