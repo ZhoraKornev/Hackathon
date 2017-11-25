@@ -10,7 +10,12 @@
   <body>
   <div class="navbar">
       <h1>Чертежник</h1>
+      <ul class="nav nav-right">
+          <li><a href="#">Download</a></li>
+          <li><a href="#">Upload</a></li>
+      </ul>
   </div>
+
   <div class= "container">
       <p><strong>Tip:</strong> Try to click different places in the heading.</p>
 
@@ -22,7 +27,6 @@
           <div id="overlay"><table id="main_table">
           </table></div>
               <div id="line" ></div>
-
           </div>
       </div>
           <img src="img/images.jpg" width="20px" height="20px" id="aim">
@@ -34,14 +38,24 @@
         <!--To Y   <input id="kuda_y"><br />-->
 
       <!--</div>-->
+      <!--<div id="overlay"></div>-->
+      <div id="alert" class ="card card-2" >
+          <p> Please enter X </p>
+          <input id="x_input" type="text" width="30px">
+          <p> Please enter Y </p>
+          <input id="y_input" type="text" width="30px">
+          <span class="bar"></span>
+          <input id="ok" type="submit" value="OK" width="40px" class="btn">
+      </div>
+
       <div id="task" class = "card card-1">
 
 
       </div>
       <div id="tools" >
-          <input type="submit" class="button btn" value="ПОДНЯТЬ ПЕРО"/>
-          <input type="submit" class="button btn" value="ОПУСТИТЬ ПЕРО"/>
-          <input type="submit" class="button btn" value="СМЕСТИТСЯ В ТОЧКУ"/>
+          <input type="submit" class="button btn" value="ПОДНЯТЬ ПЕРО" onclick="raisePen()"/>
+          <input type="submit" class="button btn" value="ОПУСТИТЬ ПЕРО" onclick="SetPenDown()"/>
+          <input type="submit" id = "move" class="button btn" value="СМЕСТИТСЯ В ТОЧКУ"/>
           <input type="submit" class="button btn" value="СМЕСТИТСЯ НА ВЕКТОР"/>
 
       </div>
