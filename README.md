@@ -21,7 +21,7 @@
 
 
 Ссылка на изображении ведёт на ютуб для видеопрезентации
-[![картинка для пивлечения внимания](http://prntscr.com/hf2avo)](https://youtu.be/JVxqLsxDwgU)
+[![картинка для пивлечения внимания](https://image.prntscr.com/image/KerNB1nNS0KoHfBdXCQfNw.png)](https://youtu.be/JVxqLsxDwgU)
 
 
 >   Данный проект реализован с использованием языка JavaScript - на нём лежит основное взаимодействие с пользователей, для верстки страницы использован стандатно HTML+CSS
