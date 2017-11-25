@@ -37,63 +37,105 @@ window.onload = function(){
 
 }
 
-var previousLocation = [{}]
-var LocationOfTochka =  {}
+//var previousLocation = [{}]
+//var LocationOfTochka =  {}
+
+
+var PenRaised = 0;
+
+function raisePen(){
+  PenRaised = 1;
+  console.log("pen raised")
+  console.log(PenRaised)
+
+}
+
+
+function MovePen(){
+  var x = document.getElementById("x").value
+  var y = document.getElementById("y").value
+
+  var kuda_x = document.getElementById("kuda_x").value
+  var kuda_y = document.getElementById("kuda_y").value
+
+  if(PenRaised){
+    console.log("pen Is Raised!")
+    PenLocation =  {"x":x, "y":y};
+    console.log(PenLocation)
+
+  }
+  else{
+    console.log("Pen Is set ! I should Draw!")
+  var c=document.getElementById("internalcanvas");
+  var ctx=c.getContext("2d");
+  ctx.beginPath();
+  if (PenRaised)
+  //TODO Addogic to check if numbers are in input
+  console.log("pen locations")
+  console.log(PenLocation)
+        ctx.moveTo(PenLocation.x,PenLocation.y)
+        ctx.lineTo(kuda_x,kuda_y);
+        ctx.stroke();
+
+  };
+
+
+
+}
+
+
+
+
+
+/////////
+var PenLocation = {"x":0, "y":0};
+
+
+function SetPenDown(){
+  var x = document.getElementById("x").value
+  var y = document.getElementById("y").value
+  console.log(PenLocation)
+  PenRaised = 0;
+  console.log("Pen is set down")
+
+if(x && y){
+  PenLocation = ({"x":x, "y":y})
+  console.log(PenLocation)
+  PenRaised = 0;
+  }
+}
+//////////
+
+
 
 
 
 
 function DrawLine(){
-
 var x = document.getElementById("x").value
 var y = document.getElementById("y").value
 
 LocationOfTochka = ({"x":x, "y":y})
 console.log(LocationOfTochka)
 
-
 var kuda_x = document.getElementById("kuda_x").value
 var kuda_y = document.getElementById("kuda_y").value
-
-
 
 var c=document.getElementById("internalcanvas");
 var ctx=c.getContext("2d");
 ctx.beginPath();
 var secondtolastitem =  ([previousLocation.length-2])
 //console.log(previousLocation[secondtolastitem])
-if (LocationOfTochka == null){console.log("One Item in Array")}
 
-  else {
-  //  console.log(previousLocation[secondtolastitem].x)
-  //ctx.moveTo(previousLocation[secondtolastitem].x,previousLocation[secondtolastitem].y);
-  ctx.moveTo(LocationOfTochka.x,LocationOfTochka.y)
-  ctx.lineTo(kuda_x,kuda_y);
-  ctx.stroke();
-  }
+if (PenRaised)
+//TODO Addogic to check if numbers are in input
+      ctx.moveTo(LocationOfTochka.x,LocationOfTochka.y)
+      ctx.lineTo(kuda_x,kuda_y);
+      ctx.stroke();
+
 };
 
 
-
-var PenLocation = {"x":0, "y":0};
-
-function SetPen(){
-
-
-
-  var x = document.getElementById("x").value
-  var y = document.getElementById("y").value
-
-if(x && y){
-  PenLocation = ({"x":x, "y":y})
-  }
-}
-
-
-function PickupPen(){
-PenLocation = ({"x":null, "y":null})
-
-}
 
 
 function moveToVector(){
