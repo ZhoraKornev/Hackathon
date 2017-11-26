@@ -1,66 +1,96 @@
 <!DOCTYPE HTML>
-<html lang="ru" >
-  <head>
+<html lang="ru">
+<head>
     <title>Чертежник </title>
-      <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" type="text/css" href="styles/style.css">
-      <script src="js/script.js"></script>
+    <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
 
-  </head>
-  <body>
-  <div class="navbar">
-      <h1>Чертежник</h1>
-      <ul class="nav nav-right">
-          <li><a href="#">Download</a></li>
-          <li><a href="#">Upload</a></li>
-      </ul>
-  </div>
+<div class="navbar">
+    <h1>Чертежник</h1>
 
-  <div class= "container">
-      <p><strong>Tip:</strong> Try to click different places in the heading.</p>
+    <ul class="nav nav-right">
+        <li><a href="#">Download</a></li>
+        <li><a href="#">Upload</a></li>
+    </ul>
 
-      <p id="demo"></p>
-      <div id="canvas" class = "card card-1">
-          <div id="inner">
+</div>
 
-          <canvas id="internalcanvas"></canvas>
-          <div id="overlay"><table id="main_table">
-          </table></div>
-              <div id="line" ></div>
-          </div>
-      </div>
-          <img src="img/images.jpg" width="20px" height="20px" id="aim">
+<div class="container">
 
-      <!--<div id="box_for_result" class="card card-1">-->
-          <!--X <input id="x"><br />-->
-          <!--Y <input id="y"><br />-->
-        <!--To X   <input id="kuda_x"><br />-->
-        <!--To Y   <input id="kuda_y"><br />-->
+    <div id="canvas" class="card card-1">
+        <div id="inner">
+            <div id="overlay">
 
-      <!--</div>-->
-      <!--<div id="overlay"></div>-->
-      <div id="alert" class ="card card-2" >
-          <p> Please enter X </p>
-          <input id="x_input" type="text" width="30px">
-          <p> Please enter Y </p>
-          <input id="y_input" type="text" width="30px">
-          <span class="bar"></span>
-          <input id="ok" type="submit" value="OK" width="40px" class="btn">
-      </div>
+                <table id="main_table">
+                </table>
 
-      <div id="task" class = "card card-1">
+            </div>
+            <div id="line"></div>
+        </div>
+    </div>
+
+    <img src="img/images.jpg" width="20px" height="20px" id="aim">
 
 
-      </div>
-      <div id="tools" >
-          <input type="submit" class="button btn" value="ПОДНЯТЬ ПЕРО" onclick="raisePen()"/>
-          <input type="submit" class="button btn" value="ОПУСТИТЬ ПЕРО" onclick="SetPenDown()"/>
-          <input type="submit" id = "move" class="button btn" value="СМЕСТИТСЯ В ТОЧКУ"/>
-          <input type="submit" class="button btn" value="СМЕСТИТСЯ НА ВЕКТОР"/>
-
-      </div>
-  </div>
 
 
-  </body>
+    <div id="box" class="card card-2">
+        <p id="task" class="left"></p>
+    </div>
+
+    <div id="tools">
+        <table id="tools_table">
+            <tr>
+                <td>
+                    <input type="submit" id="start" class="button btn" value="ПОДНЯТЬ ПЕРО" onclick="raisePen()"/>
+                </td>
+                <td>
+                    <img src="img/ok.png" id="start_img" style="display:none;width:30px;height:30px;">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" id="finish" class="button btn" value="ОПУСТИТЬ ПЕРО" onclick="SetPenDown()"
+                           disabled>
+                </td>
+                <td>
+                    <img src="img/no.png" id="finish_img" style="display:block; width:20px;height:20px;">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" id="goPoint" class="button btn" value="СМЕСТИТЬСЯ В ТОЧКУ" onclick="MovePen()"
+                           ;/>
+                </td>
+                <td>
+                    <label> x: </label>
+                    <input class="right" id="y_input" type="text" size=5>
+                    <label> y:</label>
+                    <input id="x_input" class="right" type="text" size=5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" id="goVector" class="button btn" value="СМЕСТИТЬСЯ НА ВЕКТОР"
+                           onclick="MoveVector()"/>
+                </td>
+                <td>
+                    <label> на</label>
+                    <input id="y_v_input" class="right" type="text" size=5>
+                    <label> на</label>
+                    <input id="x_v_input" class="right" type="text" size=5>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <canvas id="internalcanvas" width="500" height="500"></canvas>
+
+</div>
+
+</body>
 </html>

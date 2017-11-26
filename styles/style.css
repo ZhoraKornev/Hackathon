@@ -1,30 +1,27 @@
-td{
-    width: 25px;
-    height: 25px;
-}
-/*#line_right{*/
-     /*border-right-color: black;*/
-     /*border-right-style: solid;*/
-     /*border-collapse: collapse;*/
- /*}*/
-/*#line_top{*/
-    /*border-top-color: black;*/
-    /*border-top-style: solid;*/
-    /*border-collapse: collapse;*/
-    /*border-spacing:0*/
-/*}*/
 body {
     background-color: #f2f2f2;
     font-family: 'Roboto', serif;
     font-size: 16px;
     color: #333333;
     text-align: center;
+    margin:0;
 }
-#inner{
-    width: 90%;
+h1 {
+    font-weight: 500;
+    color: #313738;
+    font-size: 26px;
+    line-height: 2;
+    display: inline-block;
+    margin: 0;
 }
-
-
+td{
+    width: 25px;
+    height: 25px;
+}
+#tools_table td {
+    width: 50%;
+    height: 50%;
+}
 .btn {
     font-family: "Roboto medium", sans-serif;
     font-size: 14px;
@@ -53,13 +50,16 @@ body {
 .btn:hover {
     background: steelblue;
 }
-
 .button {
     width: 200px;
     text-decoration: none;
     margin-top: 22px;
     margin-left: 10px;
     height: 46px;
+    z-index: 2;
+}
+input[disabled] {
+    background: steelblue;
 }
 .card {
     background: #fff;
@@ -70,7 +70,6 @@ body {
     position: relative;
     width: 100%;
 }
-
 .card-1 {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -79,22 +78,60 @@ body {
 .card-1:hover {
     box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
+.card-2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
 div#canvas {
     position: relative;
     width: 30%;
     padding: 10px;
 }
-#canvas canvas {
+canvas {
     position:absolute;
+    width: 500px;
+    height: 500px;
     top:0;
     left:0;
-    z-index:0;
-    width: 100%;
-    height: 100%;
+    lineWidth: 3px;
 }
 *, *:before, *:after {
     box-sizing: border-box;
 }
+
+.container {
+    width: 95%;
+    margin: auto;
+    height: 100%;
+}
+#canvas {
+    float:left;
+    width:40%;
+}
+#tools {
+    float: left;
+    width: 30%;
+}
+#task{
+    margin: 10px;
+}
+
+#aim{
+    position: absolute;
+    display: none;
+}
+#inner{
+    width: 90%;
+}
+#line{
+    border-left: 2px solid blue;
+    border-bottom:  2px solid blue;
+    width: 70%;
+    height: 75%;
+    position: absolute;
+    top: 6%;
+    left: 13%;
+}
+
 .navbar {
     height: auto;
     background-image: url("../img/bg.png");
@@ -105,45 +142,6 @@ div#canvas {
     width: 100%;
     line-height: 1.4;
     padding-right: 10px;
-}
-.container {
-width: 90%;
-margin: auto;
-height: 100%;
-
-}
-#canvas {
-    float:left;
-    width:40%;
-}
-#tools {
-    float:right;
-    width:30%;
-}
-#task{
-    float:right;
-    width:30%;
-}
-#aim{
-    position: absolute;
-}
-
-#line{
-    border-left: 2px solid black;
-    border-bottom:  2px solid black;
-    width: 70%;
-    height: 75%;
-    position: absolute;
-    top: 6%;
-    left: 14%;
-}
-h1 {
-    font-weight: 500;
-    color: #313738;
-    font-size: 26px;
-    line-height: 2;
-    display: inline-block;
-    margin: 0;
 }
 .nav {
     padding: 0;
@@ -171,32 +169,22 @@ h1 {
     line-height: 39px;
 }
 
-/* if you want pull right nav links */
 .nav-right {
     float: right;
     line-height: 39px;
 }
-#auth {
-    position: absolute;
-    left: 50%;
-    margin-left: -150px;
-    width: 300px;
-    height: 180px;
-    z-index: 9999;
+.right, label{
+    margin: auto;
+    height: 46px;
+    text-decoration: none;
+    margin-top: 22px;
+    text-align: center;
+}
+#box {
+    float:right;
+    width:30%;
     padding: 10px;
-}
-
-#alert {
-    background: #e2e1e0;
-    z-index: 100;
-    opacity: .8;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 50%;
-    display: none;
-}
-.card-2 {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin: auto;
+    background-color: #f8de98;
+    overflow: auto;
 }
