@@ -14,7 +14,7 @@
 
 
 
-![картинка для пивлечения внимания](https://arhivurokov.ru/kopilka/uploads/user_file_53a0573bdfe39/img_user_file_53a0573bdfe39_1.jpg)
+![картинка для пивлечения внимания](https://screenshots.firefoxusercontent.com/images/3f3bab08-abce-45b5-8a27-04457f8bfeeb.png)
 
 Коментарии в коде почти отсутсвуют они и не нужны - всё и так понятно благодаря грамотному(и талантливому) именованию переменных.
 
@@ -121,7 +121,7 @@ README.md             | Файл описание который вы сейча
 Описание и основные функции реализованного проекта
 ------------
 Ссылка на изображении ведёт на ютуб для видеопрезентации данной программы
-[![картинка для пивлечения внимания](https://image.prntscr.com/image/gWT02U9sQo2mLxBHFHwSdA.png)](https://youtu.be/Wo0ExHEZCfo)
+[![картинка для пивлечения внимания](https://screenshots.firefoxusercontent.com/images/c984c976-381d-4537-971b-f5c3a47b70bf.png)](https://youtu.be/Wo0ExHEZCfo)
 
 
 В оригинальном чертежнике из 80-х команды нужно было вводить с клавиатуры в командную строку.
